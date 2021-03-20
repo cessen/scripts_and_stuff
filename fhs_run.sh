@@ -1,18 +1,9 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-SCRIPT=${@:-bash}
-
-FHS=$(cat << EOF | bash
-nix-build --no-out-link -E 'with import <nixpkgs> {};
+FHS=`nix-build --no-out-link -E 'with import <nixpkgs> {};
   buildFHSUserEnv {
     name = "fhs";
-    runScript = "$SCRIPT";
-    targetPkgs = p: with p; [
-      #qt3
-      #qt4
-      #qt5.full
-      #gtk2
-      #gtk3
+    targetPkgs = pkgs: with pkgs; [
       mpv
       zlib
       glib
@@ -41,8 +32,7 @@ nix-build --no-out-link -E 'with import <nixpkgs> {};
       xlibs.xcbutilrenderutil
     ];
   }
-'
-EOF
-)
+'`
 
-"$FHS/bin/fhs"
+"$FHS/bin/fhs" -c '"$@"' bash $@
+
