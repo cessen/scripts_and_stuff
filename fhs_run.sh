@@ -16,6 +16,7 @@ FHS=`nix-build --no-out-link -E 'with import <nixpkgs> {};
       libGLU
       libxkbcommon
       systemd
+      pulseaudio
       xlibs.libX11
       xlibs.libXfixes
       xlibs.libXi
