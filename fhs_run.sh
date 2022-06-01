@@ -25,20 +25,20 @@ FHS=`nix-build --no-out-link -E 'with import <nixpkgs> {};
       libxkbcommon
       systemd
       pulseaudio
-      xlibs.libX11
-      xlibs.libXfixes
-      xlibs.libXi
-      xlibs.libXxf86vm
-      xlibs.libXrender
-      xlibs.libXcomposite
-      xlibs.libXdamage
-      xlibs.libXcursor
-      xlibs.libXrandr
-      xlibs.libxcb
-      xlibs.xcbutilkeysyms
-      xlibs.xcbutilwm
-      xlibs.xcbutilimage
-      xlibs.xcbutilrenderutil
+      xorg.libX11
+      xorg.libXfixes
+      xorg.libXi
+      xorg.libXxf86vm
+      xorg.libXrender
+      xorg.libXcomposite
+      xorg.libXdamage
+      xorg.libXcursor
+      xorg.libXrandr
+      xorg.libxcb
+      xorg.xcbutilkeysyms
+      xorg.xcbutilwm
+      xorg.xcbutilimage
+      xorg.xcbutilrenderutil
     ];
   }
 '`
