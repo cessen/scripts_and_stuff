@@ -14,6 +14,8 @@ FHS=`nix-build --no-out-link -E 'with import <nixpkgs> {};
       cairo
       gtk3
       gtk4
+      qt5.full
+      mpg123
       glib
       expat
       fontconfig
@@ -22,7 +24,10 @@ FHS=`nix-build --no-out-link -E 'with import <nixpkgs> {};
       vulkan-loader
       vulkan-extension-layer
       vulkan-validation-layers
+      libkrb5
+      e2fsprogs
       libxkbcommon
+      dbus
       systemd
       pulseaudio
       xorg.libX11
@@ -30,6 +35,7 @@ FHS=`nix-build --no-out-link -E 'with import <nixpkgs> {};
       xorg.libXi
       xorg.libXxf86vm
       xorg.libXrender
+      xorg.libXext 
       xorg.libXcomposite
       xorg.libXdamage
       xorg.libXcursor
