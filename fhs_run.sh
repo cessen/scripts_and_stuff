@@ -19,6 +19,12 @@ FHS=`nix-build --no-out-link -E 'with import <nixpkgs> {};
       glib
       expat
       fontconfig
+      gdk-pixbuf
+      pango
+      cairo
+      gtk3
+      gnome3.gdm
+      libdrm
       libglvnd
       libGLU
       vulkan-loader
@@ -30,6 +36,9 @@ FHS=`nix-build --no-out-link -E 'with import <nixpkgs> {};
       dbus
       systemd
       pulseaudio
+      dbus
+      atk
+      at-spi2-atk
       xorg.libX11
       xorg.libXfixes
       xorg.libXi
@@ -45,9 +54,10 @@ FHS=`nix-build --no-out-link -E 'with import <nixpkgs> {};
       xorg.xcbutilwm
       xorg.xcbutilimage
       xorg.xcbutilrenderutil
+      xorg.libXext
+      xorg.libXtst
     ];
   }
 '`
 
 "$FHS/bin/fhs" -c '"$@"' bash $@
-
