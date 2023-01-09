@@ -7,59 +7,58 @@ FHS=`nix-build --no-out-link -E 'with import <nixpkgs> {};
     name = "fhs";
     targetPkgs = pkgs: with pkgs; [
       pkg-config
-      mpv
-      zlib
-      glib
-      nss
-      nspr
-      freetype
+
+      alsa-lib
+      at-spi2-atk
+      atk
       cairo
-      gtk3
-      gtk4
-      qt5.full
-      mpg123
-      glib
+      dbus
+      e2fsprogs
       expat
       fontconfig
+      freetype
       gdk-pixbuf
-      pango
-      cairo
-      gtk3
+      glib
       gnome3.gdm
+      gtk3
+      gtk4
       libdrm
-      libglvnd
       libGLU
-      vulkan-loader
-      vulkan-extension-layer
-      vulkan-validation-layers
+      libglvnd
       libkrb5
-      e2fsprogs
       libxkbcommon
-      dbus
-      systemd
+      mpg123
+      mpv
+      nspr
+      nss
+      pango
       pulseaudio
-      dbus
-      atk
-      at-spi2-atk
+      qt5.full
+      qt6.full
+      systemd
+      vulkan-extension-layer
+      vulkan-loader
+      vulkan-validation-layers
+      zlib
+
+      xorg.libICE
+      xorg.libSM
       xorg.libX11
+      xorg.libxcb
+      xorg.libXcomposite
+      xorg.libXcursor
+      xorg.libXdamage
+      xorg.libXext
       xorg.libXfixes
       xorg.libXi
-      xorg.libXxf86vm
-      xorg.libXrender
-      xorg.libXext 
-      xorg.libXcomposite
-      xorg.libXdamage
-      xorg.libXcursor
       xorg.libXrandr
-      xorg.libxcb
-      xorg.xcbutilkeysyms
-      xorg.xcbutilwm
-      xorg.xcbutilimage
-      xorg.xcbutilrenderutil
-      xorg.libXext
+      xorg.libXrender
       xorg.libXtst
-      xorg.libSM
-      xorg.libICE
+      xorg.libXxf86vm
+      xorg.xcbutilimage
+      xorg.xcbutilkeysyms
+      xorg.xcbutilrenderutil
+      xorg.xcbutilwm
     ];
   }
 '`
