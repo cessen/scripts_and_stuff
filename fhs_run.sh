@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export NIXPKGS_ALLOW_INSECURE=1
+
 FHS=`nix-build --no-out-link -E 'with import <nixpkgs> {};
   buildFHSUserEnv {
     name = "fhs";
@@ -56,6 +58,8 @@ FHS=`nix-build --no-out-link -E 'with import <nixpkgs> {};
       xorg.xcbutilrenderutil
       xorg.libXext
       xorg.libXtst
+      xorg.libSM
+      xorg.libICE
     ];
   }
 '`
