@@ -27,6 +27,7 @@ FHS=`nix-build --no-out-link -E 'with import <nixpkgs> {};
       libglvnd
       libkrb5
       libxkbcommon
+      libxml2
       mpg123
       mpv
       nspr
