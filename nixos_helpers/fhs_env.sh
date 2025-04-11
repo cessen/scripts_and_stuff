@@ -21,7 +21,7 @@ FHS=`nix-build --no-out-link -E 'with import <nixpkgs> {};
       pango
       cairo
       gtk3
-      gnome3.gdm
+      gdm
       libdrm
       libglvnd
       libGLU

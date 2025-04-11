@@ -19,7 +19,7 @@ FHS=`nix-build --no-out-link -E 'with import <nixpkgs> {};
       freetype
       gdk-pixbuf
       glib
-      gnome3.gdm
+      gdm
       gtk3
       gtk4
       libdrm
