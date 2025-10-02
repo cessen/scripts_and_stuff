@@ -3,7 +3,7 @@
 export NIXPKGS_ALLOW_INSECURE=1
 
 FHS=`nix-build --no-out-link -E 'with import <nixpkgs> {};
-  buildFHSUserEnv {
+  buildFHSEnv {
     name = "fhs";
     targetPkgs = pkgs: with pkgs; [
       pkg-config
@@ -33,6 +33,7 @@ FHS=`nix-build --no-out-link -E 'with import <nixpkgs> {};
       nspr
       nss
       pango
+      pipewire
       pulseaudio
       qt5.full
       qt6.full
