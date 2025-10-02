@@ -9,7 +9,9 @@
 
     cmake
     clang
+    clang-tools  # For clangd.
     ccache
+    lldb
     mold
     pkg-config
 
