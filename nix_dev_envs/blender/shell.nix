@@ -12,6 +12,7 @@
     clang-tools  # For clangd.
     ccache
     lldb
+    libz # For vscodium lldb extension.
     mold
     pkg-config
 
