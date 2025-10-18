@@ -25,7 +25,10 @@ FHS=`nix-build --no-out-link -E 'with import <nixpkgs> {};
       libdrm
       libGLU
       libglvnd
+      libjpeg
       libkrb5
+      libpng12
+      libsamplerate
       libxkbcommon
       libxml2
       mpg123
@@ -37,6 +40,7 @@ FHS=`nix-build --no-out-link -E 'with import <nixpkgs> {};
       pulseaudio
       qt5.full
       qt6.full
+      SDL
       systemd
       vulkan-extension-layer
       vulkan-loader
