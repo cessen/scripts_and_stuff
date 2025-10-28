@@ -28,7 +28,7 @@ screen_device_index = -1
 
 
 def get_wacom_device_names():
-    """ Returns a list of wacom device names from xsetwacom.
+    """ Returns a list of "(device_name, device_id)" from xsetwacom.
     """
     proc = subprocess.Popen(["xsetwacom", "--list", "devices"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = proc.communicate()
@@ -39,23 +39,25 @@ def get_wacom_device_names():
     for line in lines:
         if "id:" in line:
             dev, tail = line.split("id:", 1)
-            devices += [dev.strip()]
+            dev = dev.strip()
+            id = tail.strip().split()[0]
+            devices += [(dev, id)]
     return devices
 
 
 def test_screen_names(screen_names):
-    """ Test whether xsetwacom accepts the given screen names for device switching.
+    """ Test whether xinput accepts the given screen names for device switching.
         Returns True if all the screen names work.  Returns false if any of them fail.
     """
     dev_names = get_wacom_device_names()
     for sname in screen_names:
         for dev in dev_names:
-            proc = subprocess.Popen(["xsetwacom", "--set", dev, "MapToOutput", sname], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            proc = subprocess.Popen(["xinput", "map-to-output", dev[1], sname], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             out, err = proc.communicate()
             proc.wait()
             lines = str(out).split("\n") + str(err).split("\n")
             for l in lines:
-                if "Unable to find an output" in l:
+                if "Unable to find output" in l:
                     return False
     return True
 
@@ -95,7 +97,7 @@ def cycle_screen(sig, stack):
 
     sdev = screen_device_names[screen_device_index]
     for dev in wacom_device_names:
-        subprocess.Popen(["xsetwacom", "--set", dev, "MapToOutput", sdev]).wait()
+        subprocess.Popen(["xinput", "map-to-output", dev[1], sdev]).wait()
 
     # Watch for signals again
     signal.signal(mysig, cycle_screen)
@@ -166,5 +168,4 @@ if __name__ == "__main__":
             main_loop()
     else:
         main_loop()
-
 

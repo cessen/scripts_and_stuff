@@ -2,7 +2,8 @@
 
 A small script that cycles your wacom tablet between screens on a multi-monitor setup.
 
-This script is Linux-specific and requires both xsetwacom and xrandr to be installed.
+This script is Linux-specific and requires xinput, xsetwacom, and xrandr to all be
+installed.
 
 The first time the script is run, it starts a long-running process, and sets
 the wacom tablet to map to the first monitor.  Subsequent runs simply signal
