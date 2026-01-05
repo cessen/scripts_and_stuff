@@ -3,11 +3,11 @@
 cmake \
   -G Ninja \
   -U'CMAKE_CXX_*' -U'CMAKE_C_*' \
-  -C cmake_bits/lean.cmake \
-  -C cmake_bits/dev.cmake \
+  -C cmake_bits/full.cmake \
+  -C cmake_bits/release.cmake \
   -C cmake_bits/use_clang.cmake \
   -C cmake_bits/use_ccache.cmake \
-  -C cmake_bits/experimental.cmake \
+  -C cmake_bits/no_experimental.cmake \
   \
-  -DCMAKE_INSTALL_PREFIX=../install_debug_clang \
+  -DCMAKE_INSTALL_PREFIX=../install_release_clang \
   ../blender

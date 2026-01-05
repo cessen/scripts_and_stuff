@@ -51,6 +51,7 @@
 
   runScript = "fish";
 
+  # The UBSAN_OPTIONS is to give us better hints about suppression names.
   profile=''
     export NIX_ENFORCE_NO_NATIVE=0
     export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr

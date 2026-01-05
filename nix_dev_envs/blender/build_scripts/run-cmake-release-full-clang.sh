@@ -7,6 +7,7 @@ cmake \
   -C cmake_bits/release.cmake \
   -C cmake_bits/use_clang.cmake \
   -C cmake_bits/use_ccache.cmake \
+  -C cmake_bits/experimental.cmake \
   \
   -DCMAKE_INSTALL_PREFIX=../install_release_clang \
   ../blender
